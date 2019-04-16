@@ -13,7 +13,7 @@ describe PassengersController do
   end
 
   describe "show" do
-    it "Can get a task with a valid id" do
+    it "Can get a passenger with a valid id" do
       get passenger_path(passenger.id)
 
       must_respond_with :ok

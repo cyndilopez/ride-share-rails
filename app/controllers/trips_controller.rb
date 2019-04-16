@@ -10,5 +10,7 @@ class TripsController < ApplicationController
       redirect_to trips_path
       return
     end
+    @driver = Driver.find_by(id: @trip.driver_id)
+    @passenger = Passenger.find_by(id: @trip.passenger_id)
   end
 end
