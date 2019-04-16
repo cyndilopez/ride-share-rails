@@ -28,11 +28,20 @@ describe DriversController do
   end
 
   describe "edit" do
-    # Your tests go here
+    it "can get the edit page for an existing driver" do
+      get edit_driver_path(driver.id)
+      must_respond_with :success
+    end
+
+    it "will respond with a redirect when attempting to edit a nonexistent driver" do
+      get edit_driver_path(-1)
+      must_redirect_to drivers_path
+    end
   end
 
   describe "update" do
-    # Your tests go here
+    it "will respond with a redirect when fields invalid" do
+    end
   end
 
   describe "new" do
@@ -60,6 +69,8 @@ describe DriversController do
 
       must_respond_with :redirect
       must_redirect_to drivers_path
+    end
+    it "will respond with a redirect when fields invalid" do
     end
   end
 

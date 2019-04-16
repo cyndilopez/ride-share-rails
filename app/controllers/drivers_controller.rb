@@ -24,7 +24,10 @@ class DriversController < ApplicationController
   end
 
   def edit
-    @driver = driver.find_by(id: params[:id])
+    @driver = Driver.find_by(id: params[:id])
+    unless @driver
+      redirect_to drivers_path
+    end
   end
 
   def update
