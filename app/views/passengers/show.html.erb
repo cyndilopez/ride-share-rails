@@ -4,3 +4,20 @@
 <% @trips.each do |trip| %>
   <p><%= trip.driver.name %></p>
 <% end %>
+
+<table>
+  <tr>
+    <th>Driver</th>
+    <th>Date</th>
+    <th>Cost</th>
+    <th>Rating</th>
+  </tr>
+  <% @trips.each do |trip| %>
+  <tr>
+    <td><%= trip.driver.name %></td>
+    <td><%= trip.date %></td>
+    <td><%= trip.cost %></td>
+    <td><%= trip.rating %></td>
+  </tr>
+  <% end %>
+</table>
