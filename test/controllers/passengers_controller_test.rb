@@ -93,6 +93,6 @@ describe PassengersController do
   end
 
   describe "destroy" do
-    # Your tests go here
+    p Passenger.all
   end
 end
