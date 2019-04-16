@@ -1,6 +1,10 @@
 require "test_helper"
 
 describe DriversController do
+  let (:driver) {
+    Driver.create name: "sample name", vin: "SOME VIN"
+  }
+
   describe "index" do
     it "can get index" do
       get drivers_path
@@ -10,7 +14,17 @@ describe DriversController do
   end
 
   describe "show" do
-    # Your tests go here
+    it "Can get a driver with a valid id" do
+      get driver_path(driver.id)
+
+      must_respond_with :ok
+    end
+
+    it "Will redirect if given an invalid driver ID" do
+      get driver_path(-1)
+
+      must_respond_with :redirect
+    end
   end
 
   describe "edit" do

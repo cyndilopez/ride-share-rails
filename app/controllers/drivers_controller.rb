@@ -3,6 +3,16 @@ class DriversController < ApplicationController
     @drivers = Driver.all
   end
 
+  def show
+    @driver = Driver.find_by(id: params[:id])
+
+    unless @driver
+      redirect_to drivers_path
+      return
+    end
+    @trips = @driver.trips
+  end
+
   def new
     @driver = Driver.new
   end
