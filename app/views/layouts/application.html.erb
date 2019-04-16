@@ -8,6 +8,24 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <header class="navbar">
+    <a>Rideshare</a>
+    <button class = "dropbtn">Passengers
+      <i class="caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <%=link_to "Add Passenger", new_passenger_path, method: :get%>
+      <%= link_to "List Passengers", passengers_path, method: :get%>
+    </div>
+
+    <button class = "dropbtn">Drivers
+      <i class="caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <%=link_to "Add Driver", new_driver_path, method: :get%>
+      <%= link_to "List Drivers", drivers_path, method: :get%>
+    </div>
+  </header>
 
   <body>
     <%= yield %>
