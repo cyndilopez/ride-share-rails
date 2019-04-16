@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  */
+ .container {
+   display: grid;
+   grid-template-rows: 100px 1fr;
+ }
+
 table {
   border-collapse: collapse;
   border: black;
@@ -40,3 +45,47 @@ ul {
   padding: 0; 
   font-size: 1.2em;
 }
+
+.navbar {
+ grid-row: 1
+}
+
+
+.dropdown1 , .dropdown2{
+  float: left;
+}
+
+
+.dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  padding: 14px 28px;
+  margin: 0;
+}
+
+.dropdown-content-pass, .dropdown-content-driv {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content-pass a, .dropdown-content-driv a{
+  float: none;
+  color: black;
+  padding: 12px 28px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown1:hover .dropdown-content-pass {
+  display: block;
+}
+
+.dropdown2:hover .dropdown-content-driv {
+  display: block;
+}
+
