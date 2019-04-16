@@ -55,6 +55,11 @@ describe DriversController do
       must_redirect_to driver_path(updated_driver.id)
     end
 
+    it "will redirect to the root page if given an invalid id" do
+      patch driver_path(-1), params: @driver_hash
+      must_redirect_to drivers_path
+    end
+    
     it "will respond with a redirect when fields invalid" do
     end
   end

@@ -35,10 +35,32 @@ describe PassengersController do
     it "will respond with a redirect when attempting to edit a nonexistent passenger" do
       get edit_passenger_path(-1)
       must_redirect_to passengers_path
-    end  end
+    end
+  end
 
   describe "update" do
-    # Your tests go here
+    before do
+      @passenger_hash = {
+        passenger: {
+          name: "updated passenger",
+        },
+      }
+    end
+    it "can update an existing passenger" do
+      put passenger_path(passenger.id), params: @passenger_hash
+      updated_passenger = Passenger.find_by(name: @passenger_hash[:passenger][:name])
+
+      must_respond_with :redirect
+      must_redirect_to passenger_path(updated_passenger.id)
+    end
+
+    it "will redirect to the root page if given an invalid id" do
+      patch passenger_path(-1), params: @passenger_hash
+      must_redirect_to passengers_path
+    end
+
+    it "will respond with a redirect when fields invalid" do
+    end
   end
 
   describe "new" do

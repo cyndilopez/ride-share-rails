@@ -31,6 +31,14 @@ class PassengersController < ApplicationController
   end
 
   def update
+    @passenger = Passenger.find_by(id: params[:id])
+    unless @passenger
+      redirect_to passengers_path
+      return
+    end
+    @passenger.update(passenger_params)
+    redirect_to passenger_path(@passenger)
+
   end
 
   private
