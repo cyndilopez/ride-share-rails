@@ -10,6 +10,7 @@ class PassengersController < ApplicationController
       redirect_to passengers_path
       return
     end
+    @trip = Trip.new
     @trips = @passenger.trips
   end
 

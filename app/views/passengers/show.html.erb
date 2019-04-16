@@ -7,9 +7,13 @@
     <li>Total charged: $<%= @passenger.total_charged %></li>
   </ul>
 
-  
 </article>
 
+<div class="form">
+<%= form_with model: @trip, class: "trip-form" do |f| %>
+<%= f.submit "Request Trip", class: "task-button"%>
+<% end %>
+</div>
 
 <h2>Trips</h2>
 <table>
