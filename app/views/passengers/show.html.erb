@@ -1,10 +1,16 @@
-<h2>Passenger</h2>
+<h1>Passenger</h1>
+<article>
+  <ul>
+    <li><img src="http://lorempixel.com/200/200/animals" alt="Photo of passenger"></li>
+    <li>Name: <%= @passenger.name %></li>
+    <li>Phone number: <%= @passenger.phone_num %></li>
+  </ul>
+
+  
+</article>
 
 
-<% @trips.each do |trip| %>
-  <p><%= trip.driver.name %></p>
-<% end %>
-
+<h2>Trips</h2>
 <table>
   <tr>
     <th>ID</th>
