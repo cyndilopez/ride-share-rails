@@ -1,0 +1,9 @@
+<h1>Rideshare Passengers</h1>
+<div>
+<ul>
+
+<% @passengers.each do |passenger|%>
+    <li><%=link_to "#{passenger.name}", passengers_path(passenger.id), method: :get %>
+<% end %>
+</ul>
+</div>

@@ -9,6 +9,8 @@ class PassengersController < ApplicationController
 
   def create
     passenger = Passenger.new passenger_params
+    passenger.save
+    redirect_to passengers_path
   end
 
   private

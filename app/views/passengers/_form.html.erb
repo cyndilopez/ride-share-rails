@@ -1,0 +1,15 @@
+<div class="form">
+<%= form_with model: @passenger, class: "task-form" do |f| %>
+  <div class="place-holder-text-field">
+  <%=f.label :name, "Passenger name:" %>
+  <%= f.text_field :name %>
+  </div>
+  <div class="place-holder-text-field">
+    <%=f.label :phone_num, "Passenger number:" %>
+  <%= f.text_field :phone_num %>
+  </div>
+  <div class="space"></div>
+<%= f.submit "Create", class: "task-button"%>
+<% end %>
+</div>
+<%= link_to 'Back', passengers_path, class: "back-button"%>

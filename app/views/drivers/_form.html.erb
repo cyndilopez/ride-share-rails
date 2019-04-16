@@ -1,0 +1,15 @@
+<div class="form">
+<%= form_with model: @driver, class: "task-form" do |f| %>
+  <div class="place-holder-text-field">
+  <%=f.label :name, "Driver name:" %>
+  <%= f.text_field :name %>
+  </div>
+  <div class="place-holder-text-field">
+    <%=f.label :vin, "Vin number:" %>
+  <%= f.text_field :vin %>
+  </div>
+  <div class="space"></div>
+<%= f.submit "Create", class: "task-button"%>
+<% end %>
+</div>
+<%= link_to 'Back', drivers_path, class: "back-button"%>
