@@ -1,0 +1,31 @@
+<h1>Passenger</h1>
+<article>
+  <ul>
+    <li><img src="http://lorempixel.com/200/200/animals" alt="Photo of passenger"></li>
+    <li>Name: <%= @passenger.name %></li>
+    <li>Phone number: <%= @passenger.phone_num %></li>
+  </ul>
+
+  
+</article>
+
+
+<h2>Trips</h2>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Driver</th>
+    <th>Date</th>
+    <th>Cost</th>
+    <th>Rating</th>
+  </tr>
+  <% @trips.each do |trip| %>
+  <tr>
+    <td><%= trip.id %></td>
+    <td><%= trip.driver.name %></td>
+    <td><%= trip.date %></td>
+    <td><%= trip.cost %></td>
+    <td><%= trip.rating %></td>
+  </tr>
+  <% end %>
+</table>
