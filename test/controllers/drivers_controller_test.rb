@@ -40,6 +40,21 @@ describe DriversController do
   end
 
   describe "update" do
+    before do
+      @driver_hash = {
+        driver: {
+          name: "updated driver",
+        },
+      }
+    end
+    it "can update and existing driver" do
+      put driver_path(driver.id), params: @driver_hash
+      updated_driver = Driver.find_by(name: @driver_hash[:driver][:name])
+
+      must_respond_with :redirect
+      must_redirect_to driver_path(updated_driver.id)
+    end
+
     it "will respond with a redirect when fields invalid" do
     end
   end
