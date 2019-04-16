@@ -13,6 +13,12 @@ class DriversController < ApplicationController
     redirect_to drivers_path
   end
 
+  def edit
+  end
+
+  def destroy
+  end
+
   private
 
   def driver_params
