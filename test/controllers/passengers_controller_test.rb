@@ -27,8 +27,15 @@ describe PassengersController do
   end
 
   describe "edit" do
-    # Your tests go here
-  end
+    it "can get the edit page for an existing passenger" do
+      get edit_passenger_path(passenger.id)
+      must_respond_with :success
+    end
+
+    it "will respond with a redirect when attempting to edit a nonexistent passenger" do
+      get edit_passenger_path(-1)
+      must_redirect_to passengers_path
+    end  end
 
   describe "update" do
     # Your tests go here

@@ -23,6 +23,16 @@ class PassengersController < ApplicationController
     redirect_to passengers_path
   end
 
+  def edit
+    @passenger = Passenger.find_by(id: params[:id])
+    unless @passenger
+      redirect_to passengers_path
+    end
+  end
+
+  def update
+  end
+
   private
 
   def passenger_params
