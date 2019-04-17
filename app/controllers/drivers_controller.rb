@@ -42,7 +42,7 @@ class DriversController < ApplicationController
 
   def destroy
     driver = Driver.find_by(id: params[:id])
-    unless @driver
+    unless driver
       head :not_found
       return
     end
