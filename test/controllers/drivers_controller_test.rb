@@ -95,21 +95,22 @@ describe DriversController do
   end
 
   describe "destroy" do
-    it "removes the driver from the database" do
-      driver_to_delete = Driver.create(name: "delete")
-      # driver_to_delete.save
-      delete driver_path(driver_to_delete)
-      # delete driver_path(driver)
-      p Driver.count
-      p Driver.find(driver_to_delete.id)
-      expect {
-        delete driver_path(driver)
-      }.must_change "Driver.count", -1
+    # before { get  drivers_path}
 
+    it "removes the driver from the database" do
+      driver_to_delete = Driver.create!(name: "delete")
+      # driver_to_delete.save
+      # delete driver_path(driver_to_delete)
+      # delete driver_path(driver)
+      # p Driver.count
+      # p Driver.find(driver_to_delete.id)
+      expect {
+        delete driver_path(driver_to_delete)
+      }.must_change "Driver.count", -1
       must_respond_with :redirect
       must_redirect_to drivers_path
 
-      after_delete_driver = Driver.find_by(id: driver.id)
+      after_delete_driver = Driver.find_by(id: driver_to_delete.id)
       expect(after_delete_driver).must_be_nil
     end
   end

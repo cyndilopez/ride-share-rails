@@ -38,7 +38,17 @@ class PassengersController < ApplicationController
     end
     @passenger.update(passenger_params)
     redirect_to passenger_path(@passenger)
+  end
 
+  def destroy
+    p "in here"
+    passenger = Passenger.find_by(id: params[:id])
+    unless passenger
+      head :not_found
+      return
+    end
+    passenger.destroy
+    redirect_to passengers_path
   end
 
   private

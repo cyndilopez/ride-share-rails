@@ -47,7 +47,6 @@ class DriversController < ApplicationController
       return
     end
     driver.destroy
-    driver.save
     redirect_to drivers_path
   end
 

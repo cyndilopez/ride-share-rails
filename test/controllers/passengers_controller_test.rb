@@ -93,6 +93,17 @@ describe PassengersController do
   end
 
   describe "destroy" do
-    p Passenger.all
+    it "removes the driver from the database" do
+      passenger_to_delete = Passenger.create!(name: "delete")
+      expect {
+        delete passenger_path(passenger_to_delete)
+      }.must_change "Passenger.count", -1
+
+      must_respond_with :redirect
+      must_redirect_to passengers_path
+
+      after_passenger_delete = Passenger.find_by(id: passenger_to_delete.id)
+      expect(after_passenger_delete).must_be_nil
+    end
   end
 end
