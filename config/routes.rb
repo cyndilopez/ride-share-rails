@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :drivers, only: [:index, :create, :new, :show, :edit, :destroy]
 
   resources :passengers, only: [:index, :create, :new, :show, :edit, :destroy]
-
-  resources :trips, only: [:index, :show]
+  post "passenger/:id/trip/", to: "trips#create", as: "passenger_create_trip"
+  resources :trips, only: [:index, :show, :create]
 end

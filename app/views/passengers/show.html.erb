@@ -11,6 +11,8 @@
 
 <div class="form">
 <%= form_with model: @trip, class: "trip-form" do |f| %>
+<%# <%= f.hidden_field :passenger_id, value: @passenger.id %> 
+<% link_to "Submit", passenger_create_trip_path(@passenger.id), method: :post %>
 <%= f.submit "Request Trip", class: "task-button"%>
 <% end %>
 </div>
