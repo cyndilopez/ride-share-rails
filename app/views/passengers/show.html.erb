@@ -9,11 +9,21 @@
 
 </article>
 
-<div class="form">
-  <%= form_tag(create_trip_path(@passenger.id), method: "post") do %>
-    <%= submit_tag("Request Trip") %>
-  <% end %>
-</div>
+<% if @unrated_trip %>
+  <div class="form">
+    <%= form_tag(trip_path(@unrated_trip.id), method: "patch") do %>
+      <%= text_field_tag(:rating) %>
+      <%= submit_tag("Rate Driver") %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="form">
+    <%= form_tag(create_trip_path(@passenger.id), method: "post") do %>
+      <%= submit_tag("Request Trip") %>
+    <% end %>
+  </div>
+<% end %>
+
 
 <h2>Trips</h2>
 <table>

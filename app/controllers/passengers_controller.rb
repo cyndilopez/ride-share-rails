@@ -10,6 +10,7 @@ class PassengersController < ApplicationController
       redirect_to passengers_path
       return
     end
+    @unrated_trip = @passenger.trips.find_by(rating: nil)
     @trip = Trip.new
     @trips = @passenger.trips
   end

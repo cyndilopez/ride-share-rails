@@ -30,5 +30,12 @@ class TripsController < ApplicationController
     redirect_to passenger_path(passenger_id)
   end
 
-  # @trip.cost
+  def update
+    unrated_trip = Trip.find_by(id: params[:id])
+    new_rating = params[:rating]
+    unrated_trip.rating = new_rating
+    unrated_trip.save
+
+    redirect_to trip_path(unrated_trip.id)
+  end
 end
