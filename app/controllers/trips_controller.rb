@@ -35,7 +35,7 @@ class TripsController < ApplicationController
       end
     end
 
-    redirect_to passenger_path(1)
+    redirect_to passenger_path(passenger_id)
   end
 
   # @trip.cost
