@@ -11,4 +11,8 @@ class Driver < ApplicationRecord
     total /= trips.count.to_f
     return total.round(2)
   end
+
+  def self.find_driver
+    return Driver.all.sample
+  end
 end
