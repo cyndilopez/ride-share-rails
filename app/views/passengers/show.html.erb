@@ -11,14 +11,14 @@
 
 <% if @unrated_trip %>
   <div class="form">
-    <%= form_tag(trip_path(@unrated_trip.id), method: "patch") do %>
+    <%= form_tag(passenger_trip_path(@passenger.id, @unrated_trip.id), method: "patch") do %>
       <%= text_field_tag(:rating) %>
       <%= submit_tag("Rate Driver") %>
     <% end %>
   </div>
 <% else %>
   <div class="form">
-    <%= form_tag(create_trip_path(@passenger.id), method: "post") do %>
+    <%= form_tag(passenger_trips_path(@passenger.id), method: "post") do %>
       <%= submit_tag("Request Trip") %>
     <% end %>
   </div>
