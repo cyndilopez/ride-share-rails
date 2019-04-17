@@ -10,14 +10,10 @@
 </article>
 
 <div class="form">
-
+  <%= form_tag(create_trip_path(@passenger.id), method: "post") do %>
+    <%= submit_tag("Request Trip") %>
+  <% end %>
 </div>
-
-
-<%= form_tag(passenger_new_trip_path(@passenger.id), method: "post") do %>
-
-  <%= submit_tag("Request Trip") %>
-<% end %>
 
 <h2>Trips</h2>
 <table>

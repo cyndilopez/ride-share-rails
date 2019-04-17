@@ -3,7 +3,7 @@ class Passenger < ApplicationRecord
 
   def total_charged
     completed_trips = trips.reject { |trip| trip.cost == nil }
-    total = completed_trips.sum { |trip| trip.cost }
+    total = completed_trips.sum { |trip| trip.cost if trip.cost != nil }
 
     puts total
     return total / 100
