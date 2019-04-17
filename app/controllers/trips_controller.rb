@@ -13,4 +13,29 @@ class TripsController < ApplicationController
     @driver = Driver.find_by(id: @trip.driver_id)
     @passenger = Passenger.find_by(id: @trip.passenger_id)
   end
+
+  def new
+    @trip = Trip.new
+  end
+
+  def create
+    @trip = Trip.new
+    driver = Driver.all.sample
+    @trip.driver_id = driver.id
+    @trip.date = Date.today
+    passenger_id = params[:id]
+    @trip.passenger_id = passenger_id
+    @trip.save
+
+    redirect_to passenger_path(passenger_id)
+  end
+
+  def update
+    unrated_trip = Trip.find_by(id: params[:id])
+    new_rating = params[:rating]
+    unrated_trip.rating = new_rating
+    unrated_trip.save
+
+    redirect_to trip_path(unrated_trip.id)
+  end
 end
