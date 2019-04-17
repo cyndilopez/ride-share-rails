@@ -5,7 +5,7 @@ describe TripsController do
     Driver.create name: "sample name", vin: "SOME VIN"
   }
   let (:passenger) {
-    Passenger.create name: "sample name", phone_num: "(555) 555-5555"
+    Passenger.create name: "sample name", phone_num: "555-555-5555"
   }
   let (:trip) {
     Trip.create driver_id: driver.id, passenger_id: passenger.id, date: Date.today, rating: 4, cost: 35.5

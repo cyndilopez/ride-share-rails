@@ -20,10 +20,10 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new
-    driver = Driver.all.sample
+    driver = Driver.find_driver
     @trip.driver_id = driver.id
     @trip.date = Date.today
-    passenger_id = params[:id]
+    passenger_id = params[:passenger_id]
     @trip.passenger_id = passenger_id
     @trip.save
 
@@ -36,6 +36,6 @@ class TripsController < ApplicationController
     unrated_trip.rating = new_rating
     unrated_trip.save
 
-    redirect_to trip_path(unrated_trip.id)
+    redirect_to passenger_path(params[:passenger_id])
   end
 end

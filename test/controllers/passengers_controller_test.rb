@@ -2,7 +2,7 @@ require "test_helper"
 
 describe PassengersController do
   let (:passenger) {
-    Passenger.create name: "sample task", phone_num: "(555) 555-5555"
+    Passenger.create name: "sample task", phone_num: "555-555-5555"
   }
   describe "index" do
     it "can get the index" do
@@ -76,7 +76,7 @@ describe PassengersController do
       passenger_hash = {
         passenger: {
           name: "new passenger",
-          phone_num: "123-456-7890",
+          phone_num: "619-456-7890",
         },
       }
 
@@ -94,7 +94,7 @@ describe PassengersController do
 
   describe "destroy" do
     it "removes the driver from the database" do
-      passenger_to_delete = Passenger.create!(name: "delete")
+      passenger_to_delete = Passenger.create!(name: "delete", phone_num: "654-321-0987")
       expect {
         delete passenger_path(passenger_to_delete)
       }.must_change "Passenger.count", -1
