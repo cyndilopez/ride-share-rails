@@ -1,4 +1,17 @@
 <div class="form">
+<% if @passenger.errors.messages.any? %>
+  <section class="error-messages">
+  There are errors with your submission
+  <ul>
+  <% @passenger.errors.messages.each do |col, prob| %>
+    <% prob.each do |problem|%>
+      <li><%= col%>: <%= problem%></li>
+    <% end %>
+  <% end %>
+  </ul>
+  </section>
+  <% end %>
+
 <%= form_with model: @passenger, class: "task-form" do |f| %>
   <div class="place-holder-text-field">
   <%=f.label :name, "Passenger name:" %>
