@@ -1,11 +1,11 @@
 <h1>Rideshare Drivers</h1>
-<div>
+<div class = "index-list">
 <ul>
 
 <% @drivers.each do |driver|%>
-    <li><%=link_to "#{driver.name}", driver_path(driver.id), method: :get %>
-    <%=link_to "Edit", edit_driver_path(driver.id), method: :get %>
-    <%= link_to "Delete",driver_path(driver), method: :delete, confirm: "Are you sure?" %></li>
+    <li><%=link_to "#{driver.name}", driver_path(driver.id), method: :get %></li>
+    <%=link_to "Edit", edit_driver_path(driver.id), method: :get, class: "link-list-edit" %>
+    <%=link_to "Delete",driver_path(driver), method: :delete, confirm: "Are you sure?", class: "link-list-delete" %>
 <% end %>
 </ul>
 </div>

@@ -47,9 +47,18 @@ ul {
 }
 
 .navbar {
- grid-row: 1
+ grid-row: 1;
+ background-color: #333;
+
 }
 
+.navbar .home  a{
+  float: left;
+  font-size: 16px;
+  padding: 14px 28px;
+  text-decoration: none;
+  color: white;
+}
 
 .dropdown1 , .dropdown2{
   float: left;
@@ -66,6 +75,8 @@ ul {
   outline: none;
   padding: 14px 28px;
   margin: 0;
+  color: white;
+  background-color: inherit;
 }
 
 .dropdown-content-pass, .dropdown-content-driv {
@@ -74,6 +85,8 @@ ul {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  background-color: #f9f9f9;
+
 }
 
 .dropdown-content-pass a, .dropdown-content-driv a{
@@ -97,3 +110,22 @@ ul {
   display: block;
 }
 
+.index-list ul {
+  display: grid;
+  grid-template-columns: 1fr 100px 100px 1fr;
+  font-size: 1.5rem;
+  grid-row-gap: 20px;
+
+}
+
+.index-list ul li {
+  grid-column: 1
+}
+
+.index-list .link-list-edit {
+  grid-column: 2;
+}
+
+.index-list .link-list-delete {
+  grid-column: 3;
+}
