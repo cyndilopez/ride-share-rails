@@ -44,16 +44,9 @@ class TripsController < ApplicationController
       return
     end
     if params[:rating]
-      # if @trip.rating.nil?
       new_rating = params[:rating]
     else
-      # p params["trip"]["rating"]
-      # unrated_trip.update(trip_params)
-      new_rating = params["trip"]["rating"]
-      # new_rating = params[:rating]
-      # unrated_trip.update(rating: params[:rating])
-      p params["trip"]["rating"]
-      print params[:rating]
+      new_rating = params[:trip][:rating]
     end
     @trip.rating = new_rating
     successful = @trip.save
