@@ -29,7 +29,7 @@ class TripsController < ApplicationController
     @trip = Trip.new
     @trip.driver_id = Driver.find_driver.id
     @trip.date = Date.today
-
+    @trip.cost = Trip.calc_cost
     passenger_id = params[:passenger_id]
     @trip.passenger_id = passenger_id
     @trip.save
