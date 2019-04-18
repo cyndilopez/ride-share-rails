@@ -6,6 +6,9 @@
     <li>VIN: <%= @driver.vin %></li>
     <li>Total Earned: $<%= @driver.total_earned %></li>
     <li>Average Rating: <%= @driver.average_rating %></li>
+    <li><%= link_to "Edit", edit_driver_path(@driver.id) %></li>
+    <li><%= link_to "Delete", driver_path(@driver.id), method: "delete" %></li>
+
   </ul>
 
   

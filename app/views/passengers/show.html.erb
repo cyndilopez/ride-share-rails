@@ -5,6 +5,8 @@
     <li>Name: <%= @passenger.id %></li>
     <li>Phone number: <%= @passenger.phone_num %></li>
     <li>Total charged: $<%= @passenger.total_charged %></li>
+    <li><%= link_to "Edit", edit_passenger_path(@passenger.id) %></li>
+    <li><%= link_to "Delete", passenger_path(@passenger.id), method: "delete" %></li>
   </ul>
 
 </article>
