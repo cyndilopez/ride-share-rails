@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "homepages#index"
   resources :drivers, only: [:index, :create, :new, :show, :edit, :update, :destroy]
 
-  resources :trips, only: [:index, :show]
+  resources :trips, only: [:index, :show, :edit, :update, :destroy]
   resources :passengers, only: [:index, :create, :new, :show, :edit, :update, :destroy]
 
   # post "/trip/:id", to: "trips#create", as: "create_trip"
