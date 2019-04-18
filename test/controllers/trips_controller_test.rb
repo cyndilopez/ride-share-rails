@@ -38,14 +38,15 @@ describe TripsController do
 
   describe "destroy" do
     it "removes the driver from the database" do
+      trip_to_delete = Trip.create!(rating: 3, cost: 123.40, passenger_id: passenger.id, driver_id: driver.id)
       expect {
-        delete trip_path(trip)
+        delete trip_path(trip_to_delete)
       }.must_change "Trip.count", -1
 
       must_respond_with :redirect
       must_redirect_to root_path
 
-      after_trip_delete = Trip.find_by(id: trip.id)
+      after_trip_delete = Trip.find_by(id: trip_to_delete.id)
       expect(after_trip_delete).must_be_nil
     end
   end
