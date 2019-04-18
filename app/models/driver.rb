@@ -5,8 +5,8 @@ class Driver < ApplicationRecord
   validates :vin, presence: true
 
   def total_earned
-    total = trips.sum { |trip| trip.cost / 100 }
-    return total
+    total = trips.sum { |trip| ((trip.cost / 100) - 1.65) * 0.8 }
+    return total.round(2)
   end
 
   def average_rating
