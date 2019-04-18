@@ -47,6 +47,9 @@ class TripsController < ApplicationController
       new_rating = params[:rating]
     else
       new_rating = params[:trip][:rating]
+      new_cost = params[:trip][:cost]
+
+      @trip.cost = new_cost
     end
     @trip.rating = new_rating
     successful = @trip.save

@@ -4,8 +4,8 @@
 
 <% @drivers.each do |driver|%>
     <li><%=link_to "#{driver.name}", driver_path(driver.id), method: :get %></li>
-    <%=link_to "Edit", edit_driver_path(driver.id), method: :get, class: "link-list-edit" %>
-    <%=link_to "Delete",driver_path(driver), method: :delete, confirm: "Are you sure?", class: "link-list-delete" %>
+    <p class="dropbtn-edit"><%=link_to "Edit", edit_driver_path(driver.id), method: :get, class: "link-list-edit" %></p>
+    <p class="dropbtn-edit"><%=link_to "Delete",driver_path(driver), method: :delete, confirm: "Are you sure?", class: "link-list-delete" %></p>
 <% end %>
 </ul>
 </div>

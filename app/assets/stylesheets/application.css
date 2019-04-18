@@ -10,12 +10,15 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require_tree 
  *= require_self
  */
 
 main {
   padding: 2em 4em ;
+}
+main * {
+  padding: .15em 0;
 }
 html body {
   margin: 0;
@@ -36,7 +39,7 @@ table {
 
 }
 td, th {
-  padding-left: 2em;
+  padding: 0 2em;
 }
 
 th {
@@ -62,6 +65,9 @@ ul {
 
 article li {
   font-size: 1.10em;
+}
+a {
+  text-decoration: none;
 }
 
 .navbar {
@@ -160,19 +166,20 @@ article li {
 .index-list a {
   color: #333;
   font-weight: bold;
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 
 .index-list ul li {
   grid-column: 1;
   align-self: center;
-  /* justify-self: center */
 }
 
 .index-list .link-list-edit {
   grid-column: 2;
   color: #333;
   font-weight: lighter;
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+
 
 }
 
@@ -185,6 +192,8 @@ article li {
   grid-column: 3;
   color: #333;
   font-weight: lighter;
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+
 
 }
 
@@ -193,9 +202,9 @@ article li {
   
 }
 
-/* .index-list a:hover {
+.index-list li a:hover {
   text-decoration: underline;
   color: purple;
-} */
+}
 
 

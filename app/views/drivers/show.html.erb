@@ -9,7 +9,7 @@
     <li>Average Rating: <%= @driver.average_rating %></li>
 
   </ul>
-  <div class=index-list>
+  <div class="dropbtn-edit">
     <%= link_to "Edit", edit_driver_path(@driver.id), class: "link-list-edit" %>
     <%= link_to "Delete", driver_path(@driver.id), class: "link-list-delete" %>
   </div>

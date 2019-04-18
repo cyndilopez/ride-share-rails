@@ -1,4 +1,4 @@
-<div class="form">
+
 <% if @driver.errors.messages.any? %>
   <section class="error-messages">
   There are errors with your submission
@@ -11,7 +11,8 @@
   </ul>
   </section>
   <% end %>
-
+  
+<div class="form">
 <%= form_with model: @driver, class: "task-form" do |f| %>
   <div class="place-holder-text-field">
   <%=f.label :name, "Driver name:" %>
