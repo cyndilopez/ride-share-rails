@@ -25,7 +25,12 @@ describe TripsController do
   end
 
   describe "edit" do
-    # Your tests go here
+    it "can get the edit page for an existing task" do
+      get edit_trip_path(trip)
+
+      # Assert
+      must_respond_with :ok
+    end
   end
 
   describe "update" do
