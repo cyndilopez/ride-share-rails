@@ -5,6 +5,8 @@
     <li>Name: <%= @passenger.id %></li>
     <li>Phone number: <%= @passenger.phone_num %></li>
     <li>Total charged: $<%= @passenger.total_charged %></li>
+    <li><%= link_to "Edit", edit_passenger_path(@passenger.id) %></li>
+    <li><%= link_to "Delete", passenger_path(@passenger.id), method: "delete" %></li>
   </ul>
 
 </article>
@@ -39,7 +41,7 @@
     <td><%= link_to trip.id, trip_path(trip.id) %></td>
     <td><%= link_to trip.driver.name, driver_path(trip.driver.id) %></td>
     <td><%= trip.date %></td>
-    <td><%= trip.cost %></td>
+    <td>$<%= trip.cost / 100 %></td>
     <td><%= trip.rating %></td>
   </tr>
   <% end %>
