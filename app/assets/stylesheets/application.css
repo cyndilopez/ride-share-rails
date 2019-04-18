@@ -154,13 +154,14 @@ ul {
 .index-list ul li {
   grid-column: 1;
   align-self: center;
-  /* justify-self: center */
 }
 
 .index-list .link-list-edit {
   grid-column: 2;
   color: #333;
   font-weight: lighter;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
 
 }
 
@@ -173,6 +174,8 @@ ul {
   grid-column: 3;
   color: #333;
   font-weight: lighter;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
 
 }
 
