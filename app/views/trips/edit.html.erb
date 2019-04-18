@@ -1,0 +1,13 @@
+<%= form_with model: @trip, class: "task-form" do |f| %>
+  <div class="place-holder-text-field">
+  <%=f.label :rating, "Rating :" %>
+  <%= f.text_field :rating %>
+  </div>
+  <div class="place-holder-text-field">
+    <%=f.label :cost, "Cost :" %>
+  <%= f.text_field :cost %>
+  </div>
+  <div class="space"></div>
+<%= f.submit "Submit", class: "task-button"%>
+<% end %>
+</div>

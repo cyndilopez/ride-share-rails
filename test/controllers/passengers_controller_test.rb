@@ -2,7 +2,7 @@ require "test_helper"
 
 describe PassengersController do
   let (:passenger) {
-    Passenger.create name: "sample task", phone_num: "(555) 555-5555"
+    Passenger.create name: "sample task", phone_num: "555-555-5555"
   }
   describe "index" do
     it "can get the index" do
@@ -59,7 +59,11 @@ describe PassengersController do
       must_redirect_to passengers_path
     end
 
-    it "will respond with a redirect when fields invalid" do
+    it "validates parameters correctly" do
+      passenger.name = nil
+      expect(passenger.save).must_equal false
+      expect(passenger.valid?).must_equal false
+      expect(passenger.errors.messages[:name][0]).must_equal "can't be blank"
     end
   end
 
@@ -76,7 +80,7 @@ describe PassengersController do
       passenger_hash = {
         passenger: {
           name: "new passenger",
-          phone_num: "123-456-7890",
+          phone_num: "619-456-7890",
         },
       }
 
@@ -90,11 +94,18 @@ describe PassengersController do
       must_respond_with :redirect
       must_redirect_to passengers_path
     end
+
+    it "validates parameters correctly" do
+      passenger = Passenger.new
+      expect(passenger.valid?).must_equal false
+      expect(passenger.errors.messages[:name][0]).must_equal "can't be blank"
+      expect(passenger.errors.messages[:phone_num][0]).must_equal "can't be blank"
+    end
   end
 
   describe "destroy" do
     it "removes the driver from the database" do
-      passenger_to_delete = Passenger.create!(name: "delete")
+      passenger_to_delete = Passenger.create!(name: "delete", phone_num: "654-321-0987")
       expect {
         delete passenger_path(passenger_to_delete)
       }.must_change "Passenger.count", -1
