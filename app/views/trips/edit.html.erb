@@ -1,3 +1,16 @@
+<% if @trip.errors.messages.any? %>
+  <section class="error-messages">
+  There are errors with your submission
+  <ul>
+  <% @trip.errors.messages.each do |col, prob| %>
+    <% prob.each do |problem|%>
+      <li><%= col%>: <%= problem%></li>
+    <% end %>
+  <% end %>
+  </ul>
+  </section>
+<% end %>
+
 <%= form_with model: @trip, class: "task-form" do |f| %>
   <div class="place-holder-text-field">
   <%=f.label :rating, "Rating :" %>

@@ -38,12 +38,13 @@ class TripsController < ApplicationController
   end
 
   def update
-    unrated_trip = Trip.find_by(id: params[:id])
-    unless unrated_trip
+    @trip = Trip.find_by(id: params[:id])
+    unless @trip
       redirect_to root_path
       return
     end
-    if unrated_trip.rating.nil?
+    if params[:rating]
+      # if @trip.rating.nil?
       new_rating = params[:rating]
     else
       # p params["trip"]["rating"]
@@ -52,11 +53,15 @@ class TripsController < ApplicationController
       # new_rating = params[:rating]
       # unrated_trip.update(rating: params[:rating])
       p params["trip"]["rating"]
+      print params[:rating]
     end
-    unrated_trip.rating = new_rating
-    unrated_trip.save
-    # redirect_to passenger_path(params[:passenger_id])
-    redirect_to trip_path(unrated_trip)
+    @trip.rating = new_rating
+    successful = @trip.save
+    if successful
+      redirect_to trip_path(@trip)
+    else
+      render :edit
+    end
   end
 
   def destroy
