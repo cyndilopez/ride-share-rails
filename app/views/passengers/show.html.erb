@@ -1,8 +1,8 @@
-<h1>Passenger</h1>
+<h1>Passenger #<%= @passenger.id %></h1>
 <article>
   <ul>
     <li><img src="http://lorempixel.com/200/200/animals" alt="Photo of passenger"></li>
-    <li>Name: <%= @passenger.id %></li>
+    <li>Name: <%= @passenger.name %></li>
     <li>Phone number: <%= @passenger.phone_num %></li>
     <li>Total charged: $<%= @passenger.total_charged %></li>
     <li><%= link_to "Edit", edit_passenger_path(@passenger.id) %></li>
@@ -12,6 +12,7 @@
 </article>
 
 <% if @unrated_trip %>
+
   <div class="form">
     <%= form_tag(passenger_trip_path(@passenger.id, @unrated_trip.id), method: "patch") do %>
       <%= text_field_tag(:rating) %>

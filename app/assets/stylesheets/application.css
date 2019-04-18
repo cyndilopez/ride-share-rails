@@ -13,6 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+main {
+  padding: .5em 3em ;
+}
+html body {
+  margin: 0;
+  padding: 0;
+}
  .container {
    display: grid;
    grid-template-rows: 100px 1fr;
