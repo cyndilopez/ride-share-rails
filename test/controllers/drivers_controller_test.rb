@@ -44,6 +44,7 @@ describe DriversController do
       @driver_hash = {
         driver: {
           name: "updated driver",
+          vin: "some vin",
         },
       }
     end
@@ -98,7 +99,7 @@ describe DriversController do
     # before { get  drivers_path}
 
     it "removes the driver from the database" do
-      driver_to_delete = Driver.create!(name: "delete")
+      driver_to_delete = Driver.create!(name: "delete", vin: "vin to delete")
       # driver_to_delete.save
       # delete driver_path(driver_to_delete)
       # delete driver_path(driver)

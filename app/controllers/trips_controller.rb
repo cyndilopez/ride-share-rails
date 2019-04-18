@@ -18,6 +18,13 @@ class TripsController < ApplicationController
     @trip = Trip.new
   end
 
+  def edit
+    @trip = Trip.find_by(id: params[:id])
+    unless @trip
+      redirect_to root_path
+    end
+  end
+
   def create
     @trip = Trip.new
     driver = Driver.find_driver
@@ -31,11 +38,37 @@ class TripsController < ApplicationController
   end
 
   def update
+    p "in here"
     unrated_trip = Trip.find_by(id: params[:id])
-    new_rating = params[:rating]
+    if unrated_trip.rating.nil?
+      new_rating = params[:rating]
+    else
+      # p params["trip"]["rating"]
+      # unrated_trip.update(trip_params)
+      new_rating = params["trip"]["rating"]
+      # new_rating = params[:rating]
+      # unrated_trip.update(rating: params[:rating])
+      p params["trip"]["rating"]
+    end
     unrated_trip.rating = new_rating
     unrated_trip.save
 
-    redirect_to passenger_path(params[:passenger_id])
+    # redirect_to passenger_path(params[:passenger_id])
+    redirect_to trip_path(unrated_trip)
+  end
+
+  def destroy
+    trip = Trip.find_by(id: params[:id])
+    unless trip
+      head :not_found
+      return
+    end
+    trip.destroy
+    redirect_to root_path
+  end
+
+  private
+
+  def trip_params
   end
 end

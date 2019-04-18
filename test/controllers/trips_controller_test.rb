@@ -37,6 +37,16 @@ describe TripsController do
   end
 
   describe "destroy" do
-    # Your tests go here
+    it "removes the driver from the database" do
+      expect {
+        delete trip_path(trip)
+      }.must_change "Trip.count", -1
+
+      must_respond_with :redirect
+      must_redirect_to root_path
+
+      after_trip_delete = Trip.find_by(id: trip.id)
+      expect(after_trip_delete).must_be_nil
+    end
   end
 end
