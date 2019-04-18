@@ -79,6 +79,25 @@ ul {
   background-color: inherit;
 }
 
+.dropbtn-edit .link-list-edit, .dropbtn-edit .link-list-delete {
+  font-size: 16px;
+  background-color: white;
+  border: 2px solid lightgrey;
+  border-radius: 8px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  align-self: center;
+}
+
+.link-list-edit:hover, .link-list-delete:hover {
+  background-color: darkgray;
+  color: white;
+}
+
+.dropbtn-edit .link-list-edit, .dropbtn-edit .link-list-delete {
+  padding: 10px 30px;
+}
+
 .dropdown-content-pass, .dropdown-content-driv {
   display: none;
   position: absolute;
@@ -112,20 +131,51 @@ ul {
 
 .index-list ul {
   display: grid;
-  grid-template-columns: 1fr 100px 100px 1fr;
-  font-size: 1.5rem;
+  grid-template-columns: 1fr 150px 150px 1fr;
+  font-size: 1.2rem;
   grid-row-gap: 20px;
 
 }
 
+.index-list a {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 .index-list ul li {
-  grid-column: 1
+  grid-column: 1;
+  align-self: center;
+  /* justify-self: center */
 }
 
 .index-list .link-list-edit {
   grid-column: 2;
+  color: #333;
+  font-weight: lighter;
+
+}
+
+.index-list .link-list-edit a{
+  margin: 20px 20px;
+
 }
 
 .index-list .link-list-delete {
   grid-column: 3;
+  color: #333;
+  font-weight: lighter;
+
 }
+
+.index-list a:visited {
+  color: #333;
+  
+}
+
+/* .index-list a:hover {
+  text-decoration: underline;
+  color: purple;
+} */
+
+
