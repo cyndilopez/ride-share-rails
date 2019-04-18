@@ -181,9 +181,9 @@ ul {
   
 }
 
-/* .index-list a:hover {
+.index-list li a:hover {
   text-decoration: underline;
   color: purple;
-} */
+}
 
 

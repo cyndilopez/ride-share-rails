@@ -50,10 +50,12 @@ class TripsController < ApplicationController
       # p params["trip"]["rating"]
       # unrated_trip.update(trip_params)
       new_rating = params["trip"]["rating"]
+      new_cost = params["trip"]["cost"]
       # new_rating = params[:rating]
       # unrated_trip.update(rating: params[:rating])
       p params["trip"]["rating"]
       print params[:rating]
+      @trip.cost = new_cost
     end
     @trip.rating = new_rating
     successful = @trip.save
