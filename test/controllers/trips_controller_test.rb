@@ -70,6 +70,21 @@ describe TripsController do
       must_respond_with :redirect
       must_redirect_to root_path
     end
+
+    it "Validates the parameters correctly" do
+      @trip_data[:trip][:rating] = 0
+
+      trip.assign_attributes(@trip_data[:trip])
+      expect(trip).wont_be :valid?
+      trip.reload
+
+      patch trip_path(trip), params: @trip_data
+      puts
+      expect(trip.errors.messages[:rating][0]).must_equal "must be greater than 0"
+      must_respond_with :ok
+      # assert_template :edit
+
+    end
   end
 
   describe "create" do
