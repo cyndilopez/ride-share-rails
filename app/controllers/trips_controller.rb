@@ -27,9 +27,9 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new
-    driver = Driver.find_driver
-    @trip.driver_id = driver.id
+    @trip.driver_id = Driver.find_driver.id
     @trip.date = Date.today
+
     passenger_id = params[:passenger_id]
     @trip.passenger_id = passenger_id
     @trip.save
@@ -38,8 +38,11 @@ class TripsController < ApplicationController
   end
 
   def update
-    p "in here"
     unrated_trip = Trip.find_by(id: params[:id])
+    unless unrated_trip
+      redirect_to root_path
+      return
+    end
     if unrated_trip.rating.nil?
       new_rating = params[:rating]
     else
@@ -52,7 +55,6 @@ class TripsController < ApplicationController
     end
     unrated_trip.rating = new_rating
     unrated_trip.save
-
     # redirect_to passenger_path(params[:passenger_id])
     redirect_to trip_path(unrated_trip)
   end
