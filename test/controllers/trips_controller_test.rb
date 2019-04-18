@@ -25,15 +25,65 @@ describe TripsController do
   end
 
   describe "edit" do
-    # Your tests go here
+    it "can get the edit page for an existing trip" do
+      get edit_trip_path(trip)
+
+      # Assert
+      must_respond_with :ok
+    end
+    it "will respond with redirect when attempting to edit a nonexistant task" do
+      get edit_trip_path(-1)
+
+      must_respond_with :redirect
+      must_redirect_to root_path
+    end
   end
 
   describe "update" do
-    # Your tests go here
+    before do
+      @trip_data = {
+        trip: {
+          rating: 5,
+        },
+      }
+    end
+    it "changes the data on the model" do
+
+      # Assumptions
+      expect(trip.rating).wont_equal @trip_data[:trip][:rating]
+      patch trip_path(trip), params: @trip_data
+
+      # Assert
+      must_respond_with :redirect
+      must_redirect_to trip_path(trip)
+
+      trip.reload
+      expect(trip.rating).must_equal(@trip_data[:trip][:rating])
+    end
+
+    it "will redirect to the root page if given an invalid id" do
+      fake_id = 123456
+      expect(Trip.find_by(id: 123456)).must_equal nil
+
+      patch trip_path(fake_id), params: @trip_data
+
+      must_respond_with :redirect
+      must_redirect_to root_path
+    end
   end
 
   describe "create" do
-    # Your tests go here
+    it "can create a new trip from passenger" do
+      num_trips = passenger.trips.count
+
+      expect {
+        post passenger_trips_path(passenger.id)
+      }.must_change "Trip.count", 1
+
+      expect(passenger.trips.count).must_equal num_trips + 1
+
+      must_respond_with :redirect
+    end
   end
 
   describe "destroy" do
