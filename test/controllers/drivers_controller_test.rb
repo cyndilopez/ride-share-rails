@@ -61,7 +61,11 @@ describe DriversController do
       must_redirect_to drivers_path
     end
 
-    it "will respond with a redirect when fields invalid" do
+    it "validates parameters correctly" do
+      driver.name = nil
+      expect(driver.save).must_equal false
+      expect(driver.valid?).must_equal false
+      expect(driver.errors.messages[:name][0]).must_equal "can't be blank"
     end
   end
 
@@ -91,7 +95,12 @@ describe DriversController do
       must_respond_with :redirect
       must_redirect_to drivers_path
     end
-    it "will respond with a redirect when fields invalid" do
+
+    it "validates parameters correctly" do
+      driver = Driver.new
+      expect(driver.valid?).must_equal false
+      expect(driver.errors.messages[:name][0]).must_equal "can't be blank"
+      expect(driver.errors.messages[:vin][0]).must_equal "can't be blank"
     end
   end
 

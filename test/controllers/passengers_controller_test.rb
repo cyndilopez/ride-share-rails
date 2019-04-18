@@ -59,7 +59,11 @@ describe PassengersController do
       must_redirect_to passengers_path
     end
 
-    it "will respond with a redirect when fields invalid" do
+    it "validates parameters correctly" do
+      passenger.name = nil
+      expect(passenger.save).must_equal false
+      expect(passenger.valid?).must_equal false
+      expect(passenger.errors.messages[:name][0]).must_equal "can't be blank"
     end
   end
 
@@ -89,6 +93,13 @@ describe PassengersController do
 
       must_respond_with :redirect
       must_redirect_to passengers_path
+    end
+
+    it "validates parameters correctly" do
+      passenger = Passenger.new
+      expect(passenger.valid?).must_equal false
+      expect(passenger.errors.messages[:name][0]).must_equal "can't be blank"
+      expect(passenger.errors.messages[:phone_num][0]).must_equal "can't be blank"
     end
   end
 
