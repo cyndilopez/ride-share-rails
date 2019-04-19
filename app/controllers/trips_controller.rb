@@ -7,7 +7,7 @@ class TripsController < ApplicationController
     @trip = Trip.find_by(id: params[:id])
 
     unless @trip
-      redirect_to trips_path
+      redirect_to root_path
       return
     end
     @driver = Driver.find_by(id: @trip.driver_id)
