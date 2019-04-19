@@ -27,8 +27,6 @@ describe TripsController do
   describe "edit" do
     it "can get the edit page for an existing trip" do
       get edit_trip_path(trip)
-
-      # Assert
       must_respond_with :ok
     end
     it "will respond with redirect when attempting to edit a nonexistant task" do
@@ -82,8 +80,6 @@ describe TripsController do
       puts
       expect(trip.errors.messages[:rating][0]).must_equal "must be greater than 0"
       must_respond_with :ok
-      # assert_template :edit
-
     end
   end
 

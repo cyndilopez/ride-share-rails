@@ -105,15 +105,9 @@ describe DriversController do
   end
 
   describe "destroy" do
-    # before { get  drivers_path}
 
     it "removes the driver from the database" do
       driver_to_delete = Driver.create!(name: "delete", vin: "vin to delete")
-      # driver_to_delete.save
-      # delete driver_path(driver_to_delete)
-      # delete driver_path(driver)
-      # p Driver.count
-      # p Driver.find(driver_to_delete.id)
       expect {
         delete driver_path(driver_to_delete)
       }.must_change "Driver.count", -1
