@@ -1,9 +1,9 @@
 
 <h1>Driver #<%= @driver.id %></h1>
+<h2><%= @driver.name %></h2>
 <article>
   <ul>
     <li><img src="http://lorempixel.com/200/200/animals" alt="Photo of passenger"></li>
-    <li>Name: <%= @driver.name %></li>
     <li>VIN: <%= @driver.vin %></li>
     <li>Total Earned: $<%= @driver.total_earned %></li>
     <li>Average Rating: <%= @driver.average_rating %></li>
@@ -17,23 +17,4 @@
   
 </article>
 
-
-<h2>Trips</h2>
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Passenger</th>
-    <th>Date</th>
-    <th>Cost</th>
-    <th>Rating</th>
-  </tr>
-  <% @trips.each do |trip| %>
-  <tr>
-    <td><%= link_to trip.id, trip_path(trip.id) %></td>
-    <td><%= link_to trip.passenger.name, passenger_path(trip.passenger.id) %></td>
-    <td><%= trip.date %></td>
-    <td>$<%= trip.cost / 100 %></td>
-    <td><%= trip.rating %></td>
-  </tr>
-  <% end %>
-</table>
+<%= render 'table' %>

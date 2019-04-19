@@ -1,8 +1,9 @@
 <h1>Passenger #<%= @passenger.id %></h1>
+<h2><%= @passenger.name %></h2>
 <article>
   <ul>
     <li><img src="http://lorempixel.com/200/200/animals" alt="Photo of passenger"></li>
-    <li>Name: <%= @passenger.name %></li>
+
     <li>Phone number: <%= @passenger.phone_num %></li>
     <li>Total charged: $<%= @passenger.total_charged %></li>
 
@@ -32,22 +33,4 @@
 <% end %>
 
 
-<h2>Trips</h2>
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Driver</th>
-    <th>Date</th>
-    <th>Cost</th>
-    <th>Rating</th>
-  </tr>
-  <% @trips.each do |trip| %>
-  <tr>
-    <td><%= link_to trip.id, trip_path(trip.id) %></td>
-    <td><%= link_to trip.driver.name, driver_path(trip.driver.id) %></td>
-    <td><%= trip.date %></td>
-    <td>$<%= trip.cost / 100 %></td>
-    <td><%= trip.rating %></td>
-  </tr>
-  <% end %>
-</table>
+<%= render 'table' %>
