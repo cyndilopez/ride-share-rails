@@ -147,6 +147,11 @@ img {
   color: white;
 }
 
+.link-list-edit:visited, .link-list-delete:visited {
+  color: blue;
+  
+}
+
 .dropbtn-edit .link-list-edit, .dropbtn-edit .link-list-delete {
   padding: 10px 30px;
 }
@@ -223,6 +228,16 @@ img {
 .index-list a:visited {
   color: #333;
 }
+
+table a {
+  color: blue;
+}
+
+main article li a:visited {
+  color: blue;
+}
+
+
 /* 
 .index-list li a:hover {
   text-decoration: underline;
