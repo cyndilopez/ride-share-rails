@@ -8,6 +8,10 @@
     <li>Rating: <%= @trip.rating %></li>
     <li>Cost: $<%= "%.2f" % (@trip.cost / 100) %></li>
   </ul>
-  <%=link_to "Edit", edit_trip_path(@trip), method: :get%>
-  <%=link_to "Delete", trip_path(@trip), method: :delete, confirm: "Are you sure?"%>
+
+  <div class="dropbtn-edit">
+    <%= link_to "Edit", edit_trip_path(@trip), class: "link-list-edit" %>
+    <%= link_to "Delete", trip_path(@trip), class: "link-list-delete", method: :delete, confirm: "Are you sure?" %>
+  </div
+
 
